@@ -16,8 +16,8 @@ export DEBIAN_FRONTEND=noninteractive
 
 # install and update rubygems
 apt-get install rubygems -yq
-gem install rubygems-update && update_rubygems
+gem install --no-ri --no-rdoc rubygems-update && update_rubygems
 
 # install required system gems
-gem install foreman
+gem install --no-ri --no-rdoc foreman
 
