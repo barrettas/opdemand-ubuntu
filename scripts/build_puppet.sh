@@ -3,11 +3,8 @@
 # puppet-specific server build (run once on first boot)
 #
 
-# source orchestration inputs as environment vars
-. /var/cache/opdemand/inputs.sh
-
-# execute common build scrip
-/var/lib/opdemand/scripts/ubuntu/common.sh
+# execute common build script (will source env vars)
+/var/lib/opdemand/scripts/ubuntu/build_common.sh
 
 # install puppet modules
 gem install puppet hiera hiera-json hiera-puppet 

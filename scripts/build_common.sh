@@ -4,6 +4,9 @@
 # This script is not invoked directly, but rather by a
 # configuration management specific wrapper (e.g. build.puppet.sh)
 
+# source orchestration inputs as environment vars
+. /var/cache/opdemand/inputs.sh
+
 # set locale for calls that require encoding
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
