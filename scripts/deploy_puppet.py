@@ -26,8 +26,8 @@ else:
     debug_flag = '-v'
 
 # prepare exec args
-args = [ "puppet", "apply", debug_flag, "-e", "'%s'" % manifest]
+args = [ "puppet", "apply", debug_flag, "-e", manifest]
 
 # exec puppet apply
 print 'executing: ',args
-subprocess.check_output(args)
+subprocess.check_call(args)
