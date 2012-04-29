@@ -10,6 +10,7 @@
 gem install puppet hiera hiera-json hiera-puppet 
 
 # install hiera config file
+mkdir -p /etc/puppet
 cat > /etc/puppet/hiera.yaml <<EOF
 ---
 :backends: - json
