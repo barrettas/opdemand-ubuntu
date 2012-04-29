@@ -29,4 +29,5 @@ else:
 args = [ "puppet", "apply", debug_flag, "-e", manifest]
 
 # exec puppet apply
+print 'executing: ',args
 subprocess.check_output(args)

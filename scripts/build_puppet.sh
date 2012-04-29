@@ -3,7 +3,10 @@
 # puppet-specific server build (run once on first boot)
 #
 
-# execute common build script (will source env vars)
+# source orchestration inputs as environment vars
+. /var/cache/opdemand/inputs.sh
+
+# execute common build script
 /var/lib/opdemand/scripts/build_common.sh
 
 # install puppet modules
