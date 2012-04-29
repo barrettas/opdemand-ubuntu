@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import json
 import subprocess
+import sys
 
 # open opdemand inputs
 with open('/var/cache/opdemand/inputs.json') as f:
@@ -15,8 +16,10 @@ puppet_classes = inputs.get('puppet/classes', ["opdemand::common"])
 # prepare puppet apply manifest using ordered list of classes
 statements = []
 for cls in puppet_classes:
+    sys.stdout.write("applying puppet class: %s\n" % cls)
     statements.append('class {"%s":}' % cls)
 manifest = ' -> '.join(statements)
+sys.stdout.flush()
 
 # read debug flag
 debug = inputs.get('puppet/debug', False)
@@ -29,5 +32,4 @@ else:
 args = [ "puppet", "apply", debug_flag, "-e", manifest]
 
 # exec puppet apply
-print 'executing: ',args
 subprocess.check_call(args)
