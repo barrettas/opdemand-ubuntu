@@ -4,7 +4,7 @@
 #
 
 # execute common build script (will source env vars)
-/var/lib/opdemand/scripts/ubuntu/build_common.sh
+/var/lib/opdemand/scripts/build_common.sh
 
 # install puppet modules
 gem install puppet hiera hiera-json hiera-puppet 
