@@ -1,4 +1,4 @@
-#!/bin/sh -ex
+#!/bin/sh -e
 
 # source orchestration inputs as environment vars
 . /var/cache/opdemand/inputs.sh
