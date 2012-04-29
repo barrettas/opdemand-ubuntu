@@ -18,6 +18,9 @@ with open("/var/cache/opdemand/inputs.sh", "w") as f:
       if isinstance(val, list):
           v = ' '.join(val)
       else:
-          v = val
+          if v.find("'") > -1:
+              v = v.replace("'", "")
+          else:
+              v = val
       # SECURITY: command injection very possible, make sure you trust source data
       f.write("%s='%s'\n" % (k, v))
