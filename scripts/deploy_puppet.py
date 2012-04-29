@@ -15,7 +15,7 @@ puppet_classes = inputs.get('puppet/classes', ["opdemand::common"])
 # prepare puppet apply manifest using ordered list of classes
 statements = []
 for cls in puppet_classes:
-    statements.append("class {'%s':}" % cls)
+    statements.append('class {"%s":}' % cls)
 manifest = ' -> '.join(statements)
 
 # read debug flag
@@ -26,7 +26,7 @@ else:
     debug_flag = '-v'
 
 # prepare exec args
-args = [ "puppet", "apply", debug_flag, "-e", manifest]
+args = [ "puppet", "apply", debug_flag, "-e", "'%s'" % manifest]
 
 # exec puppet apply
 print 'executing: ',args
