@@ -9,7 +9,7 @@ is_url=`python -c "print \"$server_deploy_script\".startswith(\"http\")"`
 if [ $is_url = True ] ; then
     curl -s -o /var/cache/opdemand/deploy $server_deploy_script
 else
-    cp /var/lib/opdemand/templates/$platform_path/$server_deploy_script /var/cache/opdemand/deploy
+    cp /var/lib/opdemand/$server_deploy_script /var/cache/opdemand/deploy
 fi
 
 # add in any extra bash commands
