@@ -9,11 +9,13 @@
 # execute common build script
 /var/lib/opdemand/scripts/build_common.sh
 
+# install puppet package
+apt-get install -yq puppet
+
 # install puppet modules
 gem install puppet hiera hiera-json hiera-puppet 
 
 # install hiera config file
-mkdir -p /etc/puppet
 cat > /etc/puppet/hiera.yaml <<EOF
 ---
 :backends: - json
