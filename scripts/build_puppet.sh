@@ -3,6 +3,13 @@
 # puppet-specific server build (run once on first boot)
 #
 
+# set locale for calls that require encoding
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# prevent dpkg prompting
+export DEBIAN_FRONTEND=noninteractive
+
 # source orchestration inputs as environment vars
 . /var/cache/opdemand/inputs.sh
 
