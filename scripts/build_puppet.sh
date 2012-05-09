@@ -43,3 +43,8 @@ EOF
 mkdir -p $puppet_repository_path
 git clone --recursive $puppet_repository_url $puppet_repository_path
 cd $puppet_repository_path && git checkout -f $puppet_repository_revision
+
+# install bugfix not yet integrated into puppet master
+gem install --no-ri --no-rdoc puppet
+install /var/lib/opdemand/files/upstart.rb /usr/lib/ruby/gems/1.8/gems/puppet-2.7.14/lib/puppet/provider/service
+install /var/lib/opdemand/files/init.rb /usr/lib/ruby/gems/1.8/gems/puppet-2.7.14/lib/puppet/provider/service
