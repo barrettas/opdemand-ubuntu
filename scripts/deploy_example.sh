@@ -15,3 +15,5 @@ export DEBIAN_FRONTEND=noninteractive
 
 # install fail2ban
 apt-get install -yq fail2ban
+
+# perform idemtotent deploy actions that run on every deploy
