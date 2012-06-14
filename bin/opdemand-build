@@ -4,18 +4,17 @@
 . /var/cache/opdemand/inputs.sh
 
 # check for a url
-is_url=`python -c "print \"$server_build_script\".startswith(\"http\")"`
+is_url=`python -c "print \"$SERVER_BUILD_SCRIPT\".startswith(\"http\")"`
 if [ $is_url = True ] ; then
-    curl -s -o /var/cache/opdemand/build $server_build_script
+    curl -s -o /var/cache/opdemand/build $SERVER_BUILD_SCRIPT
 else
-    cp /var/lib/opdemand/$server_build_script /var/cache/opdemand/build
+    cp /var/lib/opdemand/$SERVER_BUILD_SCRIPT /var/cache/opdemand/build
 fi
-
 
 # add in any extra bash commands
 cat >>/var/cache/opdemand/build<<EOF 
 
-$server_build_addition
+$SERVER_BUILD_ADDITION
 EOF
 
 

@@ -7,12 +7,12 @@
 cd /var/lib/opdemand
 git fetch origin
 git fetch origin --tags
-git checkout -f $server_repository_revision
+git checkout -f $SERVER_REPOSITORY_REVISION
 
 # fetch puppet modules if they exist
-if [ -d $puppet_repository_path ] ; then
-    cd $puppet_repository_path
+if [ -d $PUPPET_REPOSITORY_PATH ] ; then
+    cd $PUPPET_REPOSITORY_PATH
     git fetch origin
     git fetch origin --tags
-    git checkout -f $puppet_repository_revision
+    git checkout -f $PUPPET_REPOSITORY_REVISION
 fi

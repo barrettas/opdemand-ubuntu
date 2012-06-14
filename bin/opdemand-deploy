@@ -4,17 +4,17 @@
 . /var/cache/opdemand/inputs.sh
 
 # check for a url
-is_url=`python -c "print \"$server_deploy_script\".startswith(\"http\")"`
+is_url=`python -c "print \"$SERVER_DEPLOY_SCRIPT\".startswith(\"http\")"`
 if [ $is_url = True ] ; then
-    curl -s -o /var/cache/opdemand/deploy $server_deploy_script
+    curl -s -o /var/cache/opdemand/deploy $SERVER_DEPLOY_SCRIPT
 else
-    cp /var/lib/opdemand/$server_deploy_script /var/cache/opdemand/deploy
+    cp /var/lib/opdemand/$SERVER_DEPLOY_SCRIPT /var/cache/opdemand/deploy
 fi
 
 # add in any extra bash commands
 cat >>/var/cache/opdemand/deploy<<EOF
 
-$server_deploy_addition
+$SERVER_DEPLOY_ADDITION
 EOF
 
 # use relative path to find/exec script as root

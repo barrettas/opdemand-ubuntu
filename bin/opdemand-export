@@ -12,7 +12,7 @@ with open("/var/cache/opdemand/inputs.sh", "w") as f:
   keys = inputs.keys()
   keys.sort()
   for key in keys:
-      k = key.replace("/", "_".lower())
+      k = key.replace("/", "_").upper()
       val = inputs[key]
       # space-separate lists
       if isinstance(val, list):

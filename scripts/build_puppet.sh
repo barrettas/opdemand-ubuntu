@@ -40,9 +40,9 @@ cat > /etc/puppet/hiera.yaml <<EOF
 EOF
 
 # clone puppet repository and checkout specified revision
-mkdir -p $puppet_repository_path
-git clone --recursive $puppet_repository_url $puppet_repository_path
-cd $puppet_repository_path && git checkout -f $puppet_repository_revision
+mkdir -p $PUPPET_REPOSITORY_PATH
+git clone --recursive $PUPPET_REPOSITORY_URL $PUPPET_REPOSITORY_PATH
+cd $PUPPET_REPOSITORY_PATH && git checkout -f $PUPPET_REPOSITORY_REVISION
 
 # install bugfix not yet integrated into puppet master
 gem install --no-ri --no-rdoc puppet --version 2.7.14
