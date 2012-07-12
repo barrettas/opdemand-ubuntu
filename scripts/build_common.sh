@@ -19,5 +19,5 @@ apt-get install rubygems -yq
 gem install --no-ri --no-rdoc rubygems-update && update_rubygems
 
 # install required system gems
-gem install --no-ri --no-rdoc foreman
+gem install --no-ri --no-rdoc foreman -v 0.47.0
 
