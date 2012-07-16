@@ -34,11 +34,11 @@ To customize build scripts:
 Although this script will normally be invoked by OpDemand, use `sudo opdemand-build` to execute manually:
 
  - Reads in environment variables from /var/cache/opdemand
- - Uses the `$server_build_script` variable to find the correct build script
+ - Uses the `$SERVER_BUILD_SCRIPT` variable to find the correct build script
     - If the script is a URL, it is downloaded to /var/cache/opdemand/build
     - If the script is not a URL, it is treated as a relative path starting at /var/lib/opdemand (e.g "scripts/build_puppet.sh")
  - The build script is copied/downloaded to /var/cache/opdemand/build
- - Any user-defined `$server_build_additions` are added to the script
+ - Any user-defined `$SERVER_BUILD_ADDITIONS` are added to the script
  - The script is executed with log output appended to `/var/log/opdemand/build.log`
  
 opdemand-deploy
@@ -58,11 +58,11 @@ To customize deploy scripts:
 Although this script will normally be invoked by OpDemand, use `sudo opdemand-deploy` to execute manually:
 
  - Reads in environment variables from /var/cache/opdemand
- - Uses the `$server_deploy_script` variable to find the correct deploy script
+ - Uses the `$SERVER_DEPLOY_SCRIPT` variable to find the correct deploy script
     - If the script is a URL, it is downloaded to /var/cache/opdemand/deploy
     - If the script is not a URL, it is treated as a relative path starting at /var/lib/opdemand (e.g "scripts/deploy_puppet.py")
  - The build script is copied/downloaded to /var/cache/opdemand/deploy
- - Any user-defined `$server_deploy_additions` are added to the script
+ - Any user-defined `$SERVER_DEPLOY_ADDITIONS` are added to the script
  - The script is executed with log output appended to `/var/log/opdemand/deploy.log`
 
 opdemand-export
@@ -77,7 +77,7 @@ formats that data as key/val pairs of environment variables that live at `/var/c
 It's important to note that any slashes in key names are converted to underscores.  For example to access the `server/build_script` variable use the following:
 
     . /var/cache/opdemand/inputs.sh    # source environment variables into your shell
-    echo $server_build_script          # print out server_build_script
+    echo $SERVER_BUILD_SCRIPT          # print out server_build_script
 
 Any JSON lists will be space-separated when translated to environment variable form.  Dictionaries/Maps are not supported at present.
 
