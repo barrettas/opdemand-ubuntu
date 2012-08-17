@@ -3,11 +3,13 @@
 # source orchestration inputs as environment vars
 . /var/cache/opdemand/inputs.sh
 
-# check for a url
+# check for a url or relative path (from /var/lib/opdemand)
 is_url=`python -c "print \"$SERVER_BUILD_SCRIPT\".startswith(\"http\")"`
 if [ $is_url = True ] ; then
+    # download build script using curl
     curl -s -o /var/cache/opdemand/build $SERVER_BUILD_SCRIPT
 else
+    # find build script using relative path
     cp /var/lib/opdemand/$SERVER_BUILD_SCRIPT /var/cache/opdemand/build
 fi
 
@@ -17,7 +19,5 @@ cat >>/var/cache/opdemand/build<<EOF
 $SERVER_BUILD_ADDITION
 EOF
 
-
-# use relative path to find/exec script as root
 chmod +x /var/cache/opdemand/build
 /var/cache/opdemand/build 2>&1 | tee -a -i /var/log/opdemand/build.log
