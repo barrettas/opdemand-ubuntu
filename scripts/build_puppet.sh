@@ -20,8 +20,7 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get install -yq puppet
 
 # install puppet modules
-gem install --no-ri --no-rdoc hiera hiera-json 
-gem install --no-ri --no-rdoc hiera-puppet -v 0.3.0
+gem install --no-ri --no-rdoc hiera hiera-json hiera-puppet
 
 # install hiera config file
 cat > /etc/puppet/hiera.yaml <<EOF
